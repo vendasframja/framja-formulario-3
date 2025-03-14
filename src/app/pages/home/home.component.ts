@@ -45,7 +45,7 @@ export class HomeComponent {
 
   avancarStep3(): void {
 
-    debugger;
+    
     const empresaValido = this.validarFormControl('empresa');
     const segmentoValido = this.validarFormControl('segmento');
     const cargoValido = this.validarFormControl('cargo');
@@ -92,7 +92,12 @@ export class HomeComponent {
     if (emailValido && senhaValido) {
 
       alert('gravou lead')
-      this.leadService.gravarLead();
+
+      
+      
+      this.leadService.gravarLead(this.leadForm.value);
+      
+      
 
     } else {
       this.leadForm.markAllAsTouched();
