@@ -2,7 +2,7 @@
     <main class="main-content">
         <div class="form-container">
             <div class="logo-framja">
-                <img src="assets/logo-framja">
+                <img src="assets/logo_framja.png">
             </div>
             <form [formGroup]="leadForm" id="stepForm">
                 <div class="step active" *ngIf="stepAtual == 'step1'">
@@ -22,7 +22,7 @@
                         </button>
                     </div>
                 </div>
-                <div class="step active" ngIf="stepAtual == 'step2">
+                <div class="step active" *ngIf="stepAtual == 'step2'">
                     <h1 class="frase-cabecalho">Perfeito!</h1>
                     <h2 class="frase-h2">Agora, nos fale sobre a sua empresa</h2>
                     <input type="text" formControlName="empresa" class="placeholder"

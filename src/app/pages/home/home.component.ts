@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AlertService } from '../services/alert.service';
 import { NgxMaskDirective, provideNgxMask } from 'ngx-mask';
+import { LeadService } from '../services/lead.service';
 
 @Component({
   standalone: true,
@@ -19,7 +20,7 @@ import { NgxMaskDirective, provideNgxMask } from 'ngx-mask';
 })
 export class HomeComponent {
 
-  stepAtual = "step3";
+  stepAtual = "step1";
   exibirSenha: boolean = false;
 
   /* Define qual step aparece na tela */
@@ -67,6 +68,7 @@ export class HomeComponent {
   constructor(
     private fb: FormBuilder,
     private alertService: AlertService,
+    private leadService: LeadService,
   ) {
     /* Faz a interpolação com os inputs do form Html e coloca o preenchimento dos inputs como obrigatórios */
     this.leadForm = this.fb.group({
@@ -90,11 +92,14 @@ export class HomeComponent {
     if (emailValido && senhaValido) {
 
       alert('gravou lead')
+      this.leadService.gravarLead();
 
     } else {
       this.leadForm.markAllAsTouched();
       this.alertService.exibirAvisoCampoObrigatorio();
     }
+
+
 
 
 
